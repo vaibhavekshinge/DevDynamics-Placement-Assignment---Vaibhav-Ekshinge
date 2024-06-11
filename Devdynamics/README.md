@@ -23,77 +23,88 @@ This is an inventory management system for an e-commerce store implemented using
 1. Clone the repository:
     ```sh
     git clone https://github.com/vaibhavekshinge/DevDynamics-Placement-Assignment---Vaibhav-Ekshinge.git
-    cd inventory-management-system
+    cd Devdy
     ```
+    
 
 2. Install dependencies:
-    ```sh
+   ``` sh
     npm install
-    ```
+   ```
+    
 
 3. Start the server:
     ```sh
-    npm start
+    npm run dev
     ```
+    
+
+
+4. Open new Terminal:
+    ```sh
+    cd Devdy
+    node driver.js
+    ```
+        
 
 ## Usage
 
-Make sure the server is running. Use an API client like Postman or `curl` to interact with the endpoints.
+Make sure the server is running. Use an API client like Postman or curl to interact with the endpoints.
 
 ## API Endpoints
 
 ### Product Endpoints
 
-- **Add Item to Inventory**
-  - **URL:** `/api/v1/products/addItem`
-  - **Method:** `POST`
-  - **Body:**
-    ```json
+- *Add Item to Inventory*
+  - *URL:* /api/v1/products/addItem
+  - *Method:* POST
+  - *Body:*
+    json
     {
       "productId": "1",
       "name": "Product 1",
       "price": 10,
       "quantity": 100
     }
-    ```
+    
 
-- **Remove Item from Inventory**
-  - **URL:** `/api/v1/products/removeItem`
-  - **Method:** `DELETE`
-  - **Body:**
-    ```json
+- *Remove Item from Inventory*
+  - *URL:* /api/v1/products/removeItem
+  - *Method:* DELETE
+  - *Body:*
+    json
     {
       "productId": "1",
       "quantity": 10
     }
-    ```
+    
 
 ### Cart Endpoints
 
-- **Add Item to Cart**
-  - **URL:** `/api/v1/cart/addToCart`
-  - **Method:** `POST`
-  - **Body:**
-    ```json
+- *Add Item to Cart*
+  - *URL:* /api/v1/cart/addToCart
+  - *Method:* POST
+  - *Body:*
+    json
     {
       "customerId": "123",
       "productId": "1",
       "quantity": 2
     }
-    ```
+    
 
 ### Coupon Endpoints
 
-- **Apply Discount Coupon**
-  - **URL:** `/api/v1/coupon/applyDiscount`
-  - **Method:** `POST`
-  - **Body:**
-    ```json
+- *Apply Discount Coupon*
+  - *URL:* /api/v1/coupon/applyDiscount
+  - *Method:* POST
+  - *Body:*
+    json
     {
       "cartValue": 500,
       "discountId": "3"
     }
-    ```
+    
 
 ## Data Structures
 
@@ -110,7 +121,8 @@ let products = [
 ];
 ```
 
-###Coupons
+
+### Coupons
 
 Stored in an array:
 ```js
@@ -124,9 +136,11 @@ let coupons = [
 ```
 
 
-###Cart
+
+### Cart
+
 Stored as an object where each key is a customer ID and the value is an array of items:
-```js
+js
 Copy code
 let cart = {
   "123": [
@@ -134,36 +148,45 @@ let cart = {
     { productId: '3', quantity: 1 }
   ]
 };
-```
 
-Add Item to Inventory
-curl -X POST http://localhost:5000/api/v1/products/addItem -H "Content-Type: application/json" -d '{
+
+### Add Item to Inventory
+```sh
+curl -X POST http://localhost:9000/api/v1/product/addItem -H "Content-Type: application/json" -d '{
   "productId": "6",
   "name": "Product 6",
   "price": 60,
   "quantity": 150
 }'
+```
 
 
-Remove Item from Inventory
-curl -X DELETE http://localhost:5000/api/v1/products/removeItem -H "Content-Type: application/json" -d '{
+
+### Remove Item from Inventory
+```sh
+curl -X DELETE http://localhost:9000/api/v1/product/removeItem -H "Content-Type: application/json" -d '{
   "productId": "1",
   "quantity": 10
 }'
+```
 
 
-Add Item to Cart
-curl -X POST http://localhost:5000/api/v1/cart/addToCart -H "Content-Type: application/json" -d '{
+
+### Add Item to Cart
+```sh
+curl -X POST http://localhost:9000/api/v1/cart/addToCart -H "Content-Type: application/json" -d '{
   "customerId": "123",
   "productId": "1",
   "quantity": 2
 }'
+```
 
 
-Apply Discount Coupon
-curl -X POST http://localhost:5000/api/v1/coupon/applyDiscount -H "Content-Type: application/json" -d '{
+
+### Apply Discount Coupon
+```sh
+curl -X POST http://localhost:9000/api/v1/coupon/applyDiscount -H "Content-Type: application/json" -d '{
   "cartValue": 500,
-  "discountId": "3"
+  "discountId": "3"
 }'
-
-
+```
