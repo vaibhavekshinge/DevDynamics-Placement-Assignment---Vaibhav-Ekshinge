@@ -22,7 +22,7 @@ This is an inventory management system for an e-commerce store implemented using
 
 1. Clone the repository:
     ```sh
-    git clone <repository_url>
+    git clone [<repository_url>](https://github.com/vaibhavekshinge/DevDynamics-Placement-Assignment---Vaibhav-Ekshinge.git)
     cd inventory-management-system
     ```
 
